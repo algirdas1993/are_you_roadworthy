@@ -2,6 +2,12 @@ body {
     background-color: #cef4f7;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .options {
     margin: 20px;
     color: lightgrey;
@@ -33,4 +39,41 @@ body {
 iframe {
     width: 100%;
     height: 100%;
+}
+
+/* styles for registration box */
+
+.registration-card {
+    background-color: #6B9FB6;
+    width: 350px;
+    /* position: relative; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    margin-top: 50px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0;
+}
+
+.card-name {
+    text-align: center;
+    color: lightgrey;
+    margin: 5px;
+}
+
+.button {
+    text-align: center;
+    background-color: rgb(238, 208, 163);
+}
+
+.inputs {
+    border-radius: 5px;
+}
+
+.input-group {
+    border-radius: 5px;
+}
+
+.if {
+    color: rgb(238, 208, 163)
 }
