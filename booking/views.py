@@ -29,6 +29,11 @@ def loginPage(request):
     return render(request, 'booking/log.html', context)
 
 
+def logOut(request):
+    logout(request)
+    return redirect('home')
+
+
 def registerPage(request):
     form = CreateUserAccount()
 
