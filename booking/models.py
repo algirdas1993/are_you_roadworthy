@@ -44,10 +44,11 @@ class BookingTime(models.Model):
         (3, 'COMPLETE SEFETY INSPECTION'),
     )   
 
-    car_reg_number = models.CharField(max_length=6, null=True)
+    car_reg_number = models.CharField(max_length=6, default=True, primary_key=True)
     check_date = models.DateField()
     check_time = models.IntegerField(choices=TIME_CHOICES, default=0)
     extra_service = models.IntegerField(choices=SERVICE_CHOICES, default=0)
+    
    
     def __str__(self):
         return self.car_reg_number

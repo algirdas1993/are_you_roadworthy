@@ -1,0 +1,9 @@
+ {{ bookings }}
+
+ <h1>bookings</h1>
+<ul>
+ {% for booking in bookings %}
+    <li>{{ booking.car_reg_number }} {{ booking.check_date }}<a href="{% url 'update-form' booking.car_reg_number %}">edit</a><a href="{% url 'delete-form' booking.car_reg_number %}">Delete</a></li>
+        
+ {% endfor %}
+</ul>    

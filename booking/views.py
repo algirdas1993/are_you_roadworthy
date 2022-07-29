@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
-from .forms import CreateUserAccount
+from .forms import CreateUserAccount, CreateBookingTime
+from .models import BookingTime
 # Create your views here.
 
 
@@ -45,3 +46,44 @@ def registerPage(request):
 
     context = {'form': form}
     return render(request, 'booking/registration.html', context)
+
+
+def bookingTime(request):
+    form = CreateBookingTime()
+
+    if request.method == 'POST':
+        form = CreateBookingTime(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'booking/form.html', context)
+
+
+def updateBooking(request, pk):
+    booking = BookingTime.objects.get(car_reg_number=pk)
+    form = CreateBookingTime(instance=booking)
+
+    if request.method == 'POST':
+        form = CreateBookingTime(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+
+    context = {'form': form}
+    return render(request, 'booking/form.html', context)
+
+
+def deleteBooking(request, pk):
+    booking = BookingTime.objects.get(car_reg_number=pk)
+
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('bookings')
+    return render(request, 'booking/delete.html', {'object': booking})
+
+
+def bookings(request):
+    bookings = BookingTime.objects.all()
+    context = {'bookings': bookings}
+    return render(request, 'booking/bookings.html', context)
