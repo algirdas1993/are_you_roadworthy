@@ -1,14 +1,110 @@
-<h1>Project</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" value="submit">
-    </form>
+{% extends 'booking/main.html' %}
 
-    <h1>bookings</h1>
-    <ul>
-     {% for booking in bookings %}
-        <li>{{ booking.car_number_plate }}</li>
-            
-     {% endfor %}
-    </ul>    
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #202a41;">
+   <a class="navbar-brand" href="#">Navbaras</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav">
+           <li class="nav-item active">
+               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="#">Contact Us</a>
+           </li>
+       </ul>
+   </div>
+</nav>
+
+<div class="container h-100 registration-card">
+    <div class="d-flex justify-content-center h-100">
+        <div class="registration_card">
+            <div class="d-flex justify-content-center">
+                <h3 class="card-name">REGISTER FOR CHECK</h3>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form method="POST">
+                    <div class="row"></div>
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa-solid fa-car"></i></span>
+                        </div>
+                        {{form.car_reg_number}}
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                        </div>
+                        {{form.check_date}}
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa-solid fa-clock"></i></span>
+                        </div>
+                        {{form.check_time}}
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa-solid fa-circle-plus"></i></span>
+                        </div>
+                        {{form.extra_service}}
+                    </div>
+                    <button type="submit" class="btn button input-group mb-3" name="register">Register</button>
+            </div>
+            </form>
+            <div class="d-flex justify-content-center">
+                <p>If you already registered <a class="if" href="{% url 'log' %}">Log In</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="card-group">
+    <div class="card options card1">
+        <img class="card-img-top" src="/static/images/bronze (400 x 35).jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">SEFETY INSPECTION</h5>
+            <ul class="card-text">
+                <li>ABS brakes</li>
+                <li>Crash protection</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card options card2">
+        <img class="card-img-top" src="/static/images/silver (400 x 35).jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">SEFETY INSPECTION +PLUS</h5>
+            <ul class="card-text">
+                <li>ABS brakes</li>
+                <li>Crash protection</li>
+                <li>Accident check on you vehicle</li>
+                <li>Extended tire control on your vehicle</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card options card3">
+        <img class="card-img-top" src="/static/images/gold (400 x 35).jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">COMPLETE SEFETY INSPECTION</h5>
+            <ul class="card-text">
+                <li>ABS brakes</li>
+                <li>Crash protection</li>
+                <li>Accident check on you vehicle</li>
+                <li>Extended tire control on your vehicle</li>
+                <li>Extended engine electronics check</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    {% endblock %}
+        

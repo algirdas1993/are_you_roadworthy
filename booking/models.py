@@ -42,14 +42,14 @@ class BookingTime(models.Model):
         (1, 'SEFETY INSPECTION'),
         (2, 'SEFETY INSPECTION +PLUS'),
         (3, 'COMPLETE SEFETY INSPECTION'),
-    )   
+    )
 
-    car_reg_number = models.CharField(max_length=6, default=True, primary_key=True)
+    car_reg_number = models.CharField(
+        max_length=6, default='XXX-XXX', primary_key=True)
     check_date = models.DateField()
     check_time = models.IntegerField(choices=TIME_CHOICES, default=0)
     extra_service = models.IntegerField(choices=SERVICE_CHOICES, default=0)
-    
-   
+
     def __str__(self):
         return self.car_reg_number
 
@@ -58,8 +58,6 @@ class Review(models.Model):
     name = models.CharField(max_length=50)
     review = models.TextField()
     review_date = models.DateField(auto_now_add=True)
-
-
 
     def __str__(self):
         return f"Review {self.review} by {self.name}"

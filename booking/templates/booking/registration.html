@@ -1,7 +1,26 @@
-
 {% extends 'booking/main.html' %}
 
 {% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #202a41;">
+    <a class="navbar-brand" href="#">Navbaras</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'log' %}">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <div class="container h-100 registration-card">
     <div class="d-flex justify-content-center h-100">
@@ -17,19 +36,19 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="far fa-user-circle"></i></span>
                         </div>
-                        {{form.username}}  
+                        {{form.username}}
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-at"></i></span>
                         </div>
-                        {{form.email}}  
-                      </div>
+                        {{form.email}}
+                    </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-lock"></i></span>
                         </div>
-                      {{form.password1}}
+                        {{form.password1}}
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
@@ -37,15 +56,16 @@
                         </div>
                         {{form.password2}}
                     </div>
-                    <button type="submit" class="btn button input-group mb-3" name="Create Account">Create Account</button>
-                    </div>
-                  </form>
-                  <div class="d-flex justify-content-center">
-                    <p>If you already registered <a class="if" href="{% url 'log' %}">Log In</a></p>
-                  </div>
+                    <button type="submit" class="btn button input-group mb-3" name="Create Account">Create
+                        Account</button>
+            </div>
+            </form>
+            <div class="d-flex justify-content-center">
+                <p>If you already registered <a class="if" href="{% url 'log' %}">Log In</a></p>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from .forms import CreateUserAccount, CreateBookingTime
 from .models import BookingTime
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -48,6 +49,7 @@ def registerPage(request):
     return render(request, 'booking/registration.html', context)
 
 
+@login_required(login_url='/log')
 def bookingTime(request):
     form = CreateBookingTime()
 
@@ -60,6 +62,7 @@ def bookingTime(request):
     return render(request, 'booking/form.html', context)
 
 
+@login_required(login_url='/log')
 def updateBooking(request, pk):
     booking = BookingTime.objects.get(car_reg_number=pk)
     form = CreateBookingTime(instance=booking)
@@ -74,6 +77,7 @@ def updateBooking(request, pk):
     return render(request, 'booking/form.html', context)
 
 
+@login_required(login_url='/log')
 def deleteBooking(request, pk):
     booking = BookingTime.objects.get(car_reg_number=pk)
 
@@ -83,6 +87,7 @@ def deleteBooking(request, pk):
     return render(request, 'booking/delete.html', {'object': booking})
 
 
+@login_required(login_url='/log')
 def bookings(request):
     bookings = BookingTime.objects.all()
     context = {'bookings': bookings}
