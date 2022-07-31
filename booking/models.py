@@ -45,8 +45,8 @@ class BookingTime(models.Model):
     )
 
     car_reg_number = models.CharField(
-        max_length=6, default='XXX-XXX', primary_key=True)
-    check_date = models.DateField()
+        max_length=6, default='XXXXXX', primary_key=True)
+    check_date = models.DateField(default='YYYY-MM-DD')
     check_time = models.IntegerField(choices=TIME_CHOICES, default=0)
     extra_service = models.IntegerField(choices=SERVICE_CHOICES, default=0)
 

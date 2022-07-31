@@ -11,6 +11,8 @@ footer {
 .options {
     margin: 20px;
     color: lightgrey;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0;
 }
 
 .card1 {
@@ -41,15 +43,11 @@ iframe {
     height: 100%;
 }
 
-/* styles for registration box */
+/* styles for registration, form, update-form  box */
 
 .registration-card {
     background-color: #6B9FB6;
     width: 350px;
-    /* position: relative; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* flex-direction: column; */
     margin-top: 50px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0;
@@ -76,4 +74,20 @@ iframe {
 
 .if {
     color: rgb(238, 208, 163)
+}
+
+
+/* styles for bookings table */
+
+table {
+    width: 80%;
+    background-color: #2B6BA9;
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    color: lightgrey
+
 }

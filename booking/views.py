@@ -57,6 +57,7 @@ def bookingTime(request):
         form = CreateBookingTime(request.POST)
         if form.is_valid():
             form.save()
+        return redirect('bookings')
 
     context = {'form': form}
     return render(request, 'booking/form.html', context)
@@ -89,6 +90,6 @@ def deleteBooking(request, pk):
 
 @login_required(login_url='/log')
 def bookings(request):
-    bookings = BookingTime.objects.all()
+    bookings = BookingTime.objects.all().values()
     context = {'bookings': bookings}
     return render(request, 'booking/bookings.html', context)

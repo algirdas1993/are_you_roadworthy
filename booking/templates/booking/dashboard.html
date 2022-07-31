@@ -23,7 +23,39 @@
     </div>
 </nav>
 
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card options card1">
+            <div class="card-body">
+                <h5 class="card-title">Register for car check</h5>
+                <p class="card-text">If You want to register your car for inspection, You can register here.</p>
+                <a href="{% url 'form' %}" class="btn button">Register</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card options card2">
+            <div class="card-body">
+                <h5 class="card-title">See planned checks</h5>
+                <p class="card-text">if you want to see your bookings, update or delete Your bookings.</p>
+                <a href="{% url 'bookings' %}" class="btn button">Go to bookings</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card options card3">
+            <div class="card-body">
+                <h5 class="card-title">Write a review</h5>
+                <p class="card-text">If you want to share your experience with others, write a review.</p>
+                <a href="#" class="btn button">Write review</a>
+            </div>
+        </div>
+    </div> 
+</div>
 
+<div class="container">
+    <img src="/static/images/picture3.jpg" class="img-fluid center" alt="Man checks uses diagnostics tool">
+</div>
 
 
 {% endblock %}
