@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
-from .forms import CreateUserAccount, CreateBookingTime
-from .models import BookingTime
+from .forms import CreateUserAccount, CreateBookingTime, CreateReview
+from .models import BookingTime, Review
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -93,3 +92,22 @@ def bookings(request):
     bookings = BookingTime.objects.all().values()
     context = {'bookings': bookings}
     return render(request, 'booking/bookings.html', context)
+
+
+def leaveReview(request):
+    form = CreateReview()
+
+    if request.method == 'POST':
+        form = CreateReview(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('dashboard')
+
+    context = {'form': form}
+    return render(request, 'booking/review.html', context)
+
+
+def readReviews(request):
+    reviews = Review.objects.all()
+    context = {'reviews': reviews}
+    return render(request, 'booking/reviews.html', context)

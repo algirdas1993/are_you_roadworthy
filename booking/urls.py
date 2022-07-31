@@ -11,4 +11,6 @@ urlpatterns = [
     path('update-form/<str:pk>/', views.updateBooking, name='update-form'),
     path('bookings/', views.bookings, name='bookings'),
     path('delete-form/<str:pk>/', views.deleteBooking, name='delete-form'),
+    path('review/', views.leaveReview, name='review'),
+    path('reviews/', views.readReviews, name='reviews'),
 ]

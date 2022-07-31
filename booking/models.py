@@ -55,8 +55,8 @@ class BookingTime(models.Model):
 
 
 class Review(models.Model):
-    name = models.CharField(max_length=50)
-    review = models.TextField()
+    name = models.CharField(max_length=50, default='Your Name')
+    review = models.TextField(default='Write Your review here:')
     review_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
